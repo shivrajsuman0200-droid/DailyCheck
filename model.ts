@@ -3,14 +3,14 @@ type TaskStatus = "todo" | "in-progress" | "done" ;
 
 interface Task {
     id:number;
-    tittle:string;
+    title:string;
     status:TaskStatus;
 }
 
 // Add new task 
 let nextId = 1;
-function addTask(tasks:Task[],tittle:string):Task[]{
-    const newTask: Task = {id:nextId++,tittle,status:"todo"};
+function addTask(tasks:Task[],title:string):Task[]{
+    const newTask: Task = {id:nextId++,title,status:"todo"};
     return [...tasks,newTask]
 }   
 
@@ -43,7 +43,7 @@ function advanceTask(tasks:Task[],id:number):Task[]{
 
 
 function countByStatus(tasks:Task[],status:TaskStatus):number{
-    const selectedTask = tasks.filter((t)=>t.status=status)
+    const selectedTask = tasks.filter((t)=>t.status===status)
     return selectedTask.length ;
 }
 
